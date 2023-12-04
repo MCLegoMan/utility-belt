@@ -33,7 +33,6 @@ import io.github.jamalam360.utility.belt.registry.Networking;
 import io.github.jamalam360.utility.belt.registry.UtilityBeltTutorial;
 import io.github.jamalam360.utility.belt.util.SimplerInventory;
 import io.github.jamalam360.utility.belt.util.TrinketsUtil;
-import java.util.List;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
@@ -41,15 +40,9 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.StackReference;
-import net.minecraft.item.FishingRodItem;
-import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
-import net.minecraft.item.RangedWeaponItem;
-import net.minecraft.item.ShearsItem;
-import net.minecraft.item.SpyglassItem;
-import net.minecraft.item.ToolItem;
-import net.minecraft.item.TridentItem;
+import net.minecraft.item.Items;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvents;
@@ -58,6 +51,8 @@ import net.minecraft.util.ClickType;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 /**
  * @author Jamalam
@@ -83,11 +78,7 @@ public class UtilityBeltItem extends TrinketItem {
     }
 
     public static boolean isValidItem(ItemStack stack) {
-        return stack.getItem() instanceof ToolItem || stack.getItem() instanceof RangedWeaponItem
-               || stack.getItem() instanceof FishingRodItem || stack.getItem() instanceof SpyglassItem
-               || stack.getItem() instanceof TridentItem || stack.getItem() instanceof FlintAndSteelItem
-               || stack.getItem() instanceof ShearsItem || stack.isEmpty()
-               || stack.isIn(UtilityBeltInit.ALLOWED_IN_UTILITY_BELT);
+        return !(stack.isOf(Items.SHULKER_BOX) || stack.isIn(UtilityBeltInit.NOT_ALLOWED_IN_UTILITY_BELT));
     }
 
     public static ItemStack getSelectedUtilityBeltStack(PlayerEntity player) {

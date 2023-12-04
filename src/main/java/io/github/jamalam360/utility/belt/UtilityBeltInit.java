@@ -63,8 +63,8 @@ public class UtilityBeltInit implements ModInitializer, ItemComponentInitializer
 
 	public static final Map<UUID, Boolean> UTILITY_BELT_SELECTED = new Object2BooleanOpenHashMap<>();
 	public static final Map<UUID, Integer> UTILITY_BELT_SELECTED_SLOTS = new Object2IntOpenHashMap<>();
-	public static final TagKey<Item> ALLOWED_IN_UTILITY_BELT = TagKey.of(Registries.ITEM.getKey(),
-			idOf("allowed_in_utility_belt"));
+	public static final TagKey<Item> NOT_ALLOWED_IN_UTILITY_BELT = TagKey.of(Registries.ITEM.getKey(),
+			idOf("not_allowed_in_utility_belt"));
 	@SuppressWarnings("rawtypes")
 	public static final ComponentKey<InventoryComponent> INVENTORY = ComponentRegistry
 			.getOrCreate(idOf("belt_inventory"), InventoryComponent.class);
@@ -82,6 +82,7 @@ public class UtilityBeltInit implements ModInitializer, ItemComponentInitializer
 	public void onInitialize() {
 		JamLibRegistry.register(ItemRegistry.class, ScreenHandlerRegistry.class);
 		JamLibConfig.init(MOD_ID, UtilityBeltConfig.class);
+		TrinketsBehaviours.registerEvents();
 		TrinketsBehaviours.registerEvents();
 		Networking.setHandlers();
 		JamLibServerNetworking.registerHandlers(MOD_ID);

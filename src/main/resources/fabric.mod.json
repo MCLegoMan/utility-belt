@@ -3,14 +3,15 @@
   "id": "utilitybelt",
   "version": "${version}",
   "name": "Utility Belt",
-  "description": "Free your hotbar",
+  "description": "Free your hotbar, now with less annoyance!",
   "authors": [
-    "Jamalam"
+    "Jamalam - Original Developer",
+    "MCLegoMan - Fork Developer"
   ],
   "contributors": [
-    "Jomlom - Artist",
-    "jo!! - Tester",
-    "supersaiyansubtlety - Tester"
+    "Jomlom - Original Artist",
+    "jo!! - Original Tester",
+    "supersaiyansubtlety - Original Tester"
   ],
   "contact": {
     "sources": "https://github.com/JamCoreModding/utility-belt",
